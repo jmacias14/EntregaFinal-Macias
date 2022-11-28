@@ -1,5 +1,8 @@
 //Logeo a consola la info de los impuestos, para a futuro tener referencia de los datos y agregarlos al HTML
 
+window.localStorage.setItem('region', 'Argentina');
+
+
 class impuesto {
     constructor(nombreImpuesto,valor,porcentaje){
     this.nombreImpuesto = nombreImpuesto;
@@ -26,11 +29,11 @@ function calcularImpuestoNew () {
     )
     document.getElementById("campoPrecioFinal").innerHTML = '$' + (precioFinal).toFixed(2) + '';
     document.getElementById("campoPrecio").style.display = "block";
+    console.log("Los impuestos estan siendo calculados para la region de " + window.localStorage.getItem('region'))
     impuesto1.infoImpuesto()
     impuesto2.infoImpuesto()
-    
-    
 }
+
 
 let botonCalcular = document.getElementById("botonCalcular");
 botonCalcular.addEventListener('click', event => {
